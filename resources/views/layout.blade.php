@@ -54,7 +54,7 @@
 
 
 
-        <nav class="uk-navbar-container uk-border-rounded uk-box-shadow-xlarge uk-box-shadow-hover-small uk-padding-small uk-padding-remove-top uk-padding-remove-bottom"
+        <nav class="uk-navbar-container uk-border-rounded uk-box-shadow-xlarge uk-box-shadow-hover-small uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-animation-slide-left"
             uk-navbar>
 
             <div class="uk-navbar-left">
@@ -66,7 +66,7 @@
                     
                     @if (Route::has('login'))
                     @auth
-                        <li> <a href="{{ route('login') }}" uk-icon="icon: sign-out"></a> </li>
+                        <li> <a href="{{ route('logout') }}" uk-icon="icon: sign-out"></a> </li>
                     @else
                         <li> <a href="{{ route('login') }}" uk-icon="icon: facebook"></a> </li>
                         <li> <a href="{{ route('register') }}" uk-icon="icon: plus"></a> </li>
