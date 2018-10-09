@@ -1,96 +1,108 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
 
-        <title>Laravel</title>
+<head>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <title>
 
-            .full-height {
-                height: 100vh;
-            }
+        <!-- title -->
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    </title>
 
-            .position-ref {
-                position: relative;
-            }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/css/uikit.min.css" />
 
-            .content {
-                text-align: center;
-            }
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit-icons.min.js"></script>
 
-            .title {
-                font-size: 84px;
-            }
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Quicksand" rel="stylesheet">
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+    <style>
+        .text {
+            font-family: 'Quicksand', sans-serif;
+        }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+        .bg {
+            z-index: -1;
+            background: black;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+        }
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+        .brand-name {
+            font-family: 'Arvo', serif;
+        }
+    </style>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+</head>
+
+<body>
+
+    <div class="bg"></div>
+
+    <div class="uk-container uk-container-small uk-margin-large-top">
+
+
+
+        <nav class="uk-navbar-container uk-border-rounded uk-box-shadow-xlarge uk-box-shadow-hover-small uk-padding-small uk-padding-remove-top uk-padding-remove-bottom"
+            uk-navbar>
+
+            <div class="uk-navbar-left">
+                <a href="{{ url('/home') }}" class="uk-logo brand-name" >notify</a>
             </div>
+
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    
+                    @if (Route::has('login'))
+                    @auth
+                        <li> <a href="{{ route('login') }}" uk-icon="icon: sign-out"></a> </li>
+                    @else
+                        <li> <a href="{{ route('login') }}" uk-icon="icon: facebook"></a> </li>
+                        <li> <a href="{{ route('register') }}" uk-icon="icon: plus"></a> </li>
+                    @endauth
+
+                @endif
+
+                    {{-- <li> <a href="#" uk-icon="icon: facebook"></a> </li>
+                    <li> <a href="" uk-icon="icon: sign-out"></a> </li>
+                    <li> <a href="" uk-icon="icon: plus"></a> </li> --}}
+
+                </ul>
+            </div>
+
+        </nav>
+
+        <div class="uk-margin-medium-top">
+
+            <div class="uk-card uk-card-default uk-border-rounded text">
+
+                <div class="uk-card-body uk-box-shadow-large uk-box-shadow-hover-small">
+                        @if (Route::has('login'))
+                        @auth
+                            got to <a href="{{url('home')}}" class="uk-button uk-button-primary uk-margin-small-left">this link</a>
+                        @else
+                            first login to get access <a href="{{url('home')}}" class="uk-button uk-button-primary uk-margin-small-left">this link</a>
+                        @endauth
+                        @endif     
+                </div> 
+
+            </div>
+
         </div>
-    </body>
+
+    </div>
+
+</body>
+
 </html>
