@@ -29,6 +29,11 @@
     </div>
 
     <div class="uk-width-expand@m">
+
+        @if ((Auth::user()->staf)==0)
+            @include('noticeform')
+        @endif
+
         <div class="uk-card uk-background-primary uk-card-body uk-border-rounded uk-box-shadow-medium uk-box-shadow-hover-small uk-padding-small uk-animation-slide-bottom">
 
             <a href="#">
