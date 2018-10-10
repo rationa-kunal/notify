@@ -10,7 +10,8 @@ class NoticeController extends Controller
 
     public function index()
     {
-        //
+        $notices = Notice::all();
+        dd($notices);
     }
 
     public function create()
