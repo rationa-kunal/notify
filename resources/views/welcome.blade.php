@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="uk-card uk-card-default uk-border-rounded text">
+    <div class="uk-card uk-card-default uk-border-rounded text uk-animation-slide-bottom">
 
         <div class="uk-card-body uk-box-shadow-large uk-box-shadow-hover-small">
             @if (Route::has('login'))
