@@ -58,7 +58,7 @@
             uk-navbar>
 
             <div class="uk-navbar-left">
-                <a href="{{ url('/home') }}" class="uk-logo brand-name" >notify</a>
+                <a href="{{ url('/') }}" class="uk-logo brand-name" >notify</a>
             </div>
 
             <div class="uk-navbar-right">
@@ -88,6 +88,15 @@
             @yield('content')
 
         </div>
+
+        <nav class="uk-navbar-container uk-border-rounded uk-box-shadow-small uk-box-shadow-hover-small uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-animation-slide-left uk-margin-top"
+            uk-navbar>
+
+            <div class="uk-navbar-left uk-padding-small">
+                created by <a href="http://rationalkunal.cf" class="uk-logo brand-name uk-margin-small-left" >kunal</a>
+            </div>
+
+        </nav>
 
     </div>
 

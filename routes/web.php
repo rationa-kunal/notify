@@ -21,9 +21,46 @@ Route::get('/test', function() {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware'=>'auth'], function(){
 
-Route::get('/index/notice', [
-    'uses'=>'NoticeController@index',
-    'as'=>'notice.index'
-]);
+    Route::get('/logout', 'Auth\LoginController@logout');
+
+    Route::get('/index/notice', 'HomeController@index')->name('home');
+
+    Route::get('/index/notice', [
+        'uses'=>'NoticeController@index',
+        'as'=>'notice.index'
+    ]);
+
+    Route::get('/show/notice/{id}', [
+        'uses'=>'NoticeController@show',
+        'as'=>'notice.show'
+    ]);
+
+    Route::get('/delete/notice/{id}', [
+        'uses'=>'NoticeController@destroy',
+        'as'=>'notice.delete'
+    ]);
+
+    Route::get('/edit/notice/{id}', [
+        'uses'=>'NoticeController@edit',
+        'as'=>'notice.edit'
+    ]);
+
+    Route::post('/create/notice', [
+        'uses'=>'NoticeController@create',
+        'as'=>'notice.create'
+    ]);
+    
+    Route::post('/store/notice', [
+        'uses'=>'NoticeController@store',
+        'as'=>'notice.store'
+    ]);
+
+    Route::get('/search/notice', [
+        'uses'=>'NoticeController@search',
+        'as'=>'notice.search'
+    ]);
+
+});
+

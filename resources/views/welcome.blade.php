@@ -10,9 +10,9 @@
         <div class="uk-card-body uk-box-shadow-large uk-box-shadow-hover-small">
             @if (Route::has('login'))
                 @auth
-                    got to <a href="{{url('home')}}" class="uk-button uk-button-primary uk-margin-small-left">this link</a>
+                    got to <a href="{{url('notice.index')}}" class="uk-button uk-button-primary uk-margin-small-left">this link</a>
             @else
-                    first login to get access <a href="{{url('home')}}" class="uk-button uk-button-primary uk-margin-small-left">this link</a>
+                    first login to get access <a href="{{url('login')}}" class="uk-button uk-button-primary uk-margin-small-left">this link</a>
                 @endauth
             @endif     
         </div> 

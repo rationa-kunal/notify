@@ -2,7 +2,7 @@
 
     <div class="uk-card-body">
         <legend class="uk-legend">add notice</legend>
-        <form method="POST" action="#">
+        <form method="POST" action="{{ route("notice.create") }}">
             @csrf
 
             <div class="uk-margin">
